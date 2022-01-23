@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="default_margin">3dp</dimen>
     <dimen name="button_operation_text_size">32sp</dimen>
     <dimen name="button_number_text_size">25sp</dimen>
+    <dimen name="main_layout_horizontal_padding">5dp</dimen>
+    <dimen name="default_horizontal_margin">3dp</dimen>
 </resources>

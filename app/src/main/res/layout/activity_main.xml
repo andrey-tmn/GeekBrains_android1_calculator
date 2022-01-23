@@ -16,16 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
-        android:paddingLeft="5dp"
-        android:paddingTop="40dp"
-        android:paddingRight="5dp">
+        android:paddingHorizontal="@dimen/main_layout_horizontal_padding"
+        android:paddingTop="40dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_columnSpan="4"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:background="@drawable/rounded_corner"
             android:gravity="end"
             android:textSize="50sp"
@@ -37,8 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_one_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -47,8 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_two_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -57,8 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_three_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -67,8 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:backgroundTint="@android:color/holo_orange_dark"
             android:text="@string/button_operation_addition_text"
             android:textSize="@dimen/button_operation_text_size"
@@ -79,8 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_four_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -89,8 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_five_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -99,8 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_six_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -109,8 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:backgroundTint="@android:color/holo_orange_dark"
             android:text="@string/button_operation_subtraction_text"
             android:textSize="@dimen/button_operation_text_size"
@@ -121,8 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_seven_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -131,8 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_eight_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -141,8 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_nine_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -151,8 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:backgroundTint="@android:color/holo_orange_dark"
             android:text="@string/button_operation_multiplication_text"
             android:textSize="@dimen/button_operation_text_size"
@@ -164,8 +150,7 @@
             android:layout_columnSpan="3"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:text="@string/button_number_zero_text"
             android:textSize="@dimen/button_number_text_size" />
 
@@ -174,8 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
+            android:layout_marginHorizontal="@dimen/default_horizontal_margin"
             android:backgroundTint="@android:color/holo_orange_dark"
             android:text="@string/button_operation_division_text"
             android:textSize="@dimen/button_operation_text_size"
