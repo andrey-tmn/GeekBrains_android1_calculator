@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Android1_Calculator</string>
+    <string name="button_operation_division_text">/</string>
+    <string name="button_number_zero_text">0</string>
+    <string name="button_operation_multiplication_text">*</string>
+    <string name="button_number_nine_text">9</string>
+    <string name="button_number_eight_text">8</string>
+    <string name="button_number_seven_text">7</string>
+    <string name="button_operation_subtraction_text">-</string>
+    <string name="button_number_six_text">6</string>
+    <string name="button_number_five_text">5</string>
+    <string name="button_number_four_text">4</string>
+    <string name="button_operation_addition_text">+</string>
+    <string name="button_number_three_text">3</string>
+    <string name="button_number_two_text">2</string>
+    <string name="button_number_one_text">1</string>
 </resources>
