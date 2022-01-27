@@ -27,7 +27,7 @@
             android:gravity="end"
             android:textSize="50sp"
             android:textStyle="bold"
-            tools:text="1234567" />
+            tools:text="123,4567890123" />
 
         <GridLayout
             android:layout_width="match_parent"

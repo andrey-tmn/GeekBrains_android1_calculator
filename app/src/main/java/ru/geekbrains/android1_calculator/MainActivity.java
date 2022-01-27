@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +34,21 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_operation_division).setOnClickListener(view -> doOperation("division"));
         findViewById(R.id.button_operation_multiplication).setOnClickListener(view -> doOperation("multiplication"));
 
-        
+        findViewById(R.id.button_number_zero).setOnClickListener(view -> numberButtonClick("0"));
+        findViewById(R.id.button_number_one).setOnClickListener(view -> numberButtonClick("1"));
+        findViewById(R.id.button_number_two).setOnClickListener(view -> numberButtonClick("2"));
+        findViewById(R.id.button_number_three).setOnClickListener(view -> numberButtonClick("3"));
+        findViewById(R.id.button_number_four).setOnClickListener(view -> numberButtonClick("4"));
+        findViewById(R.id.button_number_five).setOnClickListener(view -> numberButtonClick("5"));
+        findViewById(R.id.button_number_six).setOnClickListener(view -> numberButtonClick("6"));
+        findViewById(R.id.button_number_seven).setOnClickListener(view -> numberButtonClick("7"));
+        findViewById(R.id.button_number_eight).setOnClickListener(view -> numberButtonClick("8"));
+        findViewById(R.id.button_number_nine).setOnClickListener(view -> numberButtonClick("9"));
+    }
+
+    private void numberButtonClick(String currentSymbol) {
+        calculator.addSymbol(currentSymbol);
+        resultTextView.setText(calculator.getValue());
     }
 
     private void doOperation(final String operation) {

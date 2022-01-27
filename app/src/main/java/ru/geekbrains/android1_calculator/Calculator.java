@@ -3,24 +3,49 @@ package ru.geekbrains.android1_calculator;
 import java.io.Serializable;
 
 public class Calculator implements Serializable {
-    private String showingValue = "";
+    private static final char DECIMAL_SEPARATOR_SYMBOL = ',';
+    private StringBuilder showingValue;
     private double previousValue = 0;
 
-    public String addSymbol() {
-        return showingValue;
+    public Calculator() {
+        showingValue = new StringBuilder("0");
+    }
+
+    public String addSymbol(String symbol) {
+        if (!symbol.equals("0")) {
+            if ((1 == showingValue.length()) && ('0' == showingValue.charAt(0)))
+                showingValue.setLength(0);
+            showingValue.append(symbol);
+        } else {
+            if ((showingValue.length() > 1) || ('0' != showingValue.charAt(0)))
+                showingValue.append(symbol);
+        }
+
+        return showingValue.toString();
     }
 
     public String getValue() {
-        return showingValue;
+        return showingValue.toString();
     }
 
     public void reset() {
-        showingValue = "";
+        showingValue.setLength(0);
+        showingValue.append("0");
         previousValue = 0;
     }
 
     public void backspace() {
-        //TODO
+        if (1 == showingValue.length()) {
+            if ('0' != showingValue.charAt(0))
+                showingValue.setCharAt(0, '0');
+        } else if (showingValue.length() > 1) {
+            showingValue.setLength(showingValue.length() - 1);
+
+            // Если не нужно оставлять разделитель дробной части один в конце
+            //if (DECIMAL_SEPARATOR_SYMBOL == showingValue.charAt(showingValue.length() - 1))
+            //    showingValue.setLength(showingValue.length() - 1);
+
+        }
     }
 
     public void result() {
@@ -28,7 +53,8 @@ public class Calculator implements Serializable {
     }
 
     public void decimal_separator() {
-        //TODO
+        if (-1 == showingValue.indexOf(String.valueOf(DECIMAL_SEPARATOR_SYMBOL)))
+            showingValue.append(DECIMAL_SEPARATOR_SYMBOL);
     }
 
     public void addition() {
