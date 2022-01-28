@@ -3,7 +3,7 @@ package ru.geekbrains.android1_calculator;
 import java.io.Serializable;
 
 public class Calculator implements Serializable {
-    private static final char DECIMAL_SEPARATOR_SYMBOL = ',';
+    private static char DECIMAL_SEPARATOR_SYMBOL = ',';
     private StringBuilder showingValue;
     private double previousValue = 0;
 
@@ -71,5 +71,14 @@ public class Calculator implements Serializable {
 
     public void multiplication() {
         //TODO
+    }
+
+    public void setDecimalSeparator(char newDecimalSeparatorChar) {
+        if (newDecimalSeparatorChar != DECIMAL_SEPARATOR_SYMBOL) {
+            int decimalSeparatorPosition = showingValue.indexOf(String.valueOf(DECIMAL_SEPARATOR_SYMBOL));
+            if (-1 != decimalSeparatorPosition)
+                showingValue.setCharAt(decimalSeparatorPosition, newDecimalSeparatorChar);
+            DECIMAL_SEPARATOR_SYMBOL = newDecimalSeparatorChar;
+        }
     }
 }

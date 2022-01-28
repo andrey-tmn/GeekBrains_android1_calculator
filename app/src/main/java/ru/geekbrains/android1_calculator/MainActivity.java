@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import java.text.DecimalFormatSymbols;
 
 public class MainActivity extends AppCompatActivity {
     private Calculator calculator;
@@ -22,9 +24,17 @@ public class MainActivity extends AppCompatActivity {
         else
             calculator = (Calculator) savedInstanceState.getSerializable("CALCULATOR_IN_BUNDLE");
 
+        char decimalSeparatorChar = DecimalFormatSymbols.getInstance().getDecimalSeparator();
+        calculator.setDecimalSeparator(decimalSeparatorChar);
+        ((Button) findViewById(R.id.button_operation_decimal_separator)).setText(String.valueOf(decimalSeparatorChar));
+
         resultTextView = findViewById(R.id.textview_result);
         resultTextView.setText(calculator.getValue());
 
+        setOnClickListeners();
+    }
+
+    private void setOnClickListeners() {
         findViewById(R.id.button_operation_reset).setOnClickListener(view -> doOperation("reset"));
         findViewById(R.id.button_operation_backspace).setOnClickListener(view -> doOperation("backspace"));
         findViewById(R.id.button_operation_result).setOnClickListener(view -> doOperation("result"));
