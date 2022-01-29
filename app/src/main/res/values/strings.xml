@@ -18,4 +18,5 @@
     <string name="button_operation_backspace_text">←</string>
     <string name="button_operation_result_text">=</string>
     <string name="button_operation_decimal_separator_text">,</string>
+    <string name="background_image_description">Background image</string>
 </resources>

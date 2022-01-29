@@ -1,5 +1,6 @@
 package ru.geekbrains.android1_calculator;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +13,7 @@ import java.text.DecimalFormatSymbols;
 public class MainActivity extends AppCompatActivity {
     private Calculator calculator;
     private TextView resultTextView;
+    private TextView historyTextView;
     private static final String CALCULATOR_IN_BUNDLE = "CALCULATOR_IN_BUNDLE";
 
     @Override
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         calculator.setDecimalSeparator(decimalSeparatorChar);
         ((Button) findViewById(R.id.button_operation_decimal_separator)).setText(String.valueOf(decimalSeparatorChar));
 
+        historyTextView = findViewById(R.id.textview_history);
+        historyTextView.setText(calculator.getHistoryString());
         resultTextView = findViewById(R.id.textview_result);
         resultTextView.setText(calculator.getValue());
 
@@ -72,9 +76,6 @@ public class MainActivity extends AppCompatActivity {
             case "result":
                 calculator.result();
                 break;
-            case "decimal_separator":
-                calculator.decimal_separator();
-                break;
             case "addition":
                 calculator.addition();
                 break;
@@ -87,8 +88,13 @@ public class MainActivity extends AppCompatActivity {
             case "multiplication":
                 calculator.multiplication();
                 break;
+            case "decimal_separator":
+                calculator.decimal_separator();
+                resultTextView.setText(calculator.getValue());
+                return;
         }
         resultTextView.setText(calculator.getValue());
+        historyTextView.setText(calculator.getHistoryString());
     }
 
     @Override
