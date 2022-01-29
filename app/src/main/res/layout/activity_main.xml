@@ -15,18 +15,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/layout_top_margin"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textview_history"
-            android:layout_width="10000dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/textview_history_width"
+            android:layout_height="@dimen/textview_history_height"
             android:layout_gravity="end"
             android:layout_marginHorizontal="@dimen/result_textview_horizontal_margin"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="@dimen/textview_history_margin_bottom"
             android:gravity="end"
-            android:textSize="18sp"
+            android:textSize="@dimen/textview_history_text_size"
             tools:text="123,4567890123+34534,34534" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_marginHorizontal="@dimen/result_textview_horizontal_margin"
             android:background="@drawable/rounded_corner"
             android:gravity="end"
-            android:textSize="50sp"
+            android:textSize="@dimen/textview_result_text_size"
             android:textStyle="bold"
             tools:text="123,4567890123" />
 
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:columnCount="@integer/keyboard_column_count"
             android:paddingHorizontal="@dimen/main_layout_horizontal_padding"
-            android:paddingTop="8dp">
+            android:paddingTop="@dimen/keyboard_grid_layout_padding_top">
 
             <include layout="@layout/keyboard" />
 

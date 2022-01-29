@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GridLayoutCellContent">
+        <item name="android:layout_width">@dimen/size_0dp</item>
+        <item name="android:layout_height">@dimen/button_default_height</item>
+        <item name="android:layout_columnWeight">@integer/column_weight_one</item>
+        <item name="android:layout_gravity">fill</item>
+    </style>
+
+    <style name="CalculatorButton" parent="GridLayoutCellContent">
+        <item name="android:layout_marginLeft">@dimen/default_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/default_horizontal_margin</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/button_number_text_size</item>
+    </style>
+
+    <style name="CalculatorButton.OperationButton">
+        <item name="android:backgroundTint">@android:color/holo_orange_dark</item>
+        <item name="android:textSize">@dimen/button_operation_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
