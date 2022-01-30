@@ -6,4 +6,5 @@
     <attr name="resultTextViewTextColor" format="color" />
     <attr name="resultTextViewBackgroundColor" format="color" />
     <attr name="historyTextViewTextColor" format="color" />
+    <attr name="backgroundImageSource" format="reference" />
 </resources>

@@ -10,15 +10,25 @@ import android.widget.TextView;
 
 import java.text.DecimalFormatSymbols;
 
+import ru.geekbrains.android1_calculator.domain.Theme;
+import ru.geekbrains.android1_calculator.storage.ThemeStorage;
+
 public class MainActivity extends AppCompatActivity {
+
+    private static final String CALCULATOR_IN_BUNDLE = "CALCULATOR_IN_BUNDLE";
+
     private Calculator calculator;
     private TextView resultTextView;
     private TextView historyTextView;
-    private static final String CALCULATOR_IN_BUNDLE = "CALCULATOR_IN_BUNDLE";
+    private ThemeStorage storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        storage = new ThemeStorage(this);
+        setTheme(storage.getTheme().getStyle());
+
         setContentView(R.layout.activity_main);
 
         if (null == savedInstanceState)
@@ -39,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setOnClickListeners() {
+        findViewById(R.id.change_theme_button).setOnClickListener(view -> {
+            if (storage.getTheme().equals(Theme.MAIN)) {
+                storage.saveTheme(Theme.SAND);
+            } else {
+                storage.saveTheme(Theme.MAIN);
+            }
+            recreate();
+        });
+
         findViewById(R.id.button_operation_reset).setOnClickListener(view -> doOperation("reset"));
         findViewById(R.id.button_operation_backspace).setOnClickListener(view -> doOperation("backspace"));
         findViewById(R.id.button_operation_result).setOnClickListener(view -> doOperation("result"));

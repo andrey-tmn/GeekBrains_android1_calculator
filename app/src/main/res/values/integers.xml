@@ -3,4 +3,5 @@
     <integer name="keyboard_column_count">4</integer>
     <integer name="two_cell_span">2</integer>
     <integer name="column_weight_one">1</integer>
+    <integer name="zero">0</integer>
 </resources>

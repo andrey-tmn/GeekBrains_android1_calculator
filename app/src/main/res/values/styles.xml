@@ -15,6 +15,7 @@
         <item name="android:textSize">@dimen/button_number_text_size</item>
         <item name="android:backgroundTint">?attr/buttonBackground</item>
         <item name="android:textColor">?attr/buttonTextColor</item>
+        <item name="android:strokeWidth">@integer/zero</item>
     </style>
 
     <style name="CalculatorButton.OperationButton">
@@ -52,6 +53,18 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:scaleType">centerCrop</item>
-        <item name="android:src">@drawable/calculator_background</item>
+        <item name="android:src">?attr/backgroundImageSource</item>
     </style>
+
+    <style name="ThemeChangeButtonStyle">
+        <item name="android:layout_width">@dimen/theme_change_button_width</item>
+        <item name="android:layout_height">@dimen/theme_change_button_height</item>
+        <item name="android:layout_marginEnd">@dimen/theme_change_button_margins</item>
+        <item name="android:padding">@dimen/size_0dp</item>
+        <item name="android:layout_marginBottom">@dimen/theme_change_button_margins</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:backgroundTint">@color/dull_white</item>
+        <item name="cornerRadius">@dimen/theme_change_button_corner_round_radius</item>
+    </style>
+
 </resources>
