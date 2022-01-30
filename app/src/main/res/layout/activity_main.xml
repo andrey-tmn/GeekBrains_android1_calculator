@@ -6,11 +6,8 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/background_image_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/calculator_background" />
+        style="@style/BackgroundImageViewStyle"
+        android:contentDescription="@string/background_image_description" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,24 +17,12 @@
 
         <TextView
             android:id="@+id/textview_history"
-            android:layout_width="@dimen/textview_history_width"
-            android:layout_height="@dimen/textview_history_height"
-            android:layout_gravity="end"
-            android:layout_marginHorizontal="@dimen/result_textview_horizontal_margin"
-            android:layout_marginBottom="@dimen/textview_history_margin_bottom"
-            android:gravity="end"
-            android:textSize="@dimen/textview_history_text_size"
+            style="@style/HistoryTextViewStyle"
             tools:text="123,4567890123+34534,34534" />
 
         <TextView
             android:id="@+id/textview_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/result_textview_horizontal_margin"
-            android:background="@drawable/rounded_corner"
-            android:gravity="end"
-            android:textSize="@dimen/textview_result_text_size"
-            android:textStyle="bold"
+            style="@style/ResultTextViewStyle"
             tools:text="123,4567890123" />
 
         <GridLayout

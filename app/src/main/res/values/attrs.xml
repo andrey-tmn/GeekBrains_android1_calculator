@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="buttonBackground" format="color" />
+    <attr name="buttonOperationBackground" format="color" />
+    <attr name="buttonTextColor" format="color" />
+    <attr name="resultTextViewTextColor" format="color" />
+    <attr name="resultTextViewBackgroundColor" format="color" />
+    <attr name="historyTextViewTextColor" format="color" />
+</resources>
