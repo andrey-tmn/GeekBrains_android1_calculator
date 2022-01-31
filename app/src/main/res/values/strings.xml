@@ -14,4 +14,9 @@
     <string name="button_number_three_text">3</string>
     <string name="button_number_two_text">2</string>
     <string name="button_number_one_text">1</string>
+    <string name="button_operation_reset_text">C</string>
+    <string name="button_operation_backspace_text">←</string>
+    <string name="button_operation_result_text">=</string>
+    <string name="button_operation_decimal_separator_text">,</string>
+    <string name="background_image_description">Background image</string>
 </resources>
