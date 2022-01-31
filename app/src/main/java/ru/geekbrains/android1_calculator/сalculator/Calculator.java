@@ -30,14 +30,31 @@ public class Calculator implements Serializable {
         return showingValue.toString();
     }
 
-    public void addSymbol(char symbol) {
-        if ((symbol == DOT) &&
+    public void addSymbol(CalculatorSymbol symbol) {
+        if (symbol.equals(CalculatorSymbol.BACKSPACE)) {
+            if (waitingNewOperand) {
+                reset();
+                return;
+            }
+
+            if (showingValue.length() == 1) {
+                if (showingValue.charAt(0) != '0') {
+                    showingValue.setCharAt(0, '0');
+                }
+            } else if (showingValue.length() > 1) {
+                showingValue.setLength(showingValue.length() - 1);
+            }
+
+            return;
+        }
+
+        if ((symbol.equals(CalculatorSymbol.DOT)) &&
                 (showingValue.indexOf(String.valueOf(DOT)) != NOT_FOUND)) {
             return;
         }
 
         if (waitingNewOperand) {
-            if (DOT == symbol) {
+            if (symbol.equals(CalculatorSymbol.DOT)) {
                 return;
             }
 
@@ -51,9 +68,9 @@ public class Calculator implements Serializable {
             return;
         }
 
-        if (('0' != symbol) && (DOT != symbol)) {
+        if ((!symbol.equals(CalculatorSymbol.ZERO)) && (!symbol.equals(CalculatorSymbol.DOT))) {
 
-            if ((1 == showingValue.length()) && ('0' == showingValue.charAt(0))) {
+            if ((showingValue.length() == 1) && (showingValue.charAt(0) == '0')) {
                 showingValue.setLength(0);
             }
 
@@ -61,8 +78,8 @@ public class Calculator implements Serializable {
 
         } else {
 
-            if ((showingValue.length() > 1) || ('0' != showingValue.charAt(0)) ||
-                    (symbol == DOT)) {
+            if ((showingValue.length() > 1) || (showingValue.charAt(0) != '0') ||
+                    (symbol.equals(CalculatorSymbol.DOT))) {
                 showingValue.append(symbol);
             }
 
@@ -78,31 +95,46 @@ public class Calculator implements Serializable {
                 result();
                 break;
             default:
-                doMathOperation();
+                mathOperationPrepare(operation);
         }
     }
 
-/*
-    private void changeDecimalSeparator(char oldSeparator, char newSeparator) {
-        int decimalSeparatorPosition = showingValue.indexOf(String.valueOf(oldSeparator));
-        if (decimalSeparatorPosition != NOT_FOUND)
-            showingValue.setCharAt(decimalSeparatorPosition, newSeparator);
-    }
+    private void mathOperationPrepare(CalculatorOperation operation) {
+        if ((showingValue.length() == 1) && (showingValue.charAt(0)) == '0') {
+            return;
+        }
 
-    public void setDecimalSeparator(char newDecimalSeparatorChar) {
-        if (newDecimalSeparatorChar != DECIMAL_SEPARATOR_SYMBOL) {
-            changeDecimalSeparator(DECIMAL_SEPARATOR_SYMBOL, newDecimalSeparatorChar);
-
-            int decimalSeparatorPosition = history.indexOf(String.valueOf(DECIMAL_SEPARATOR_SYMBOL));
-            while (decimalSeparatorPosition != NOT_FOUND) {
-                history.setCharAt(decimalSeparatorPosition, newDecimalSeparatorChar);
-                decimalSeparatorPosition = history.indexOf(String.valueOf(DECIMAL_SEPARATOR_SYMBOL));
+        if (waitingNewOperand) {
+            setFirstOperand();
+            lastOperator = operation;
+            if (history.length() > 3) {
+                char tmp = history.charAt(history.length() - 2);
+                if (((tmp == '+') || (tmp == '-') || (tmp == '*') || (tmp == '/')) &&
+                        (history.charAt(history.length() - 1) == ' ')) {
+                    history.setCharAt(history.length() - 2, operation.getSymbol());
+                } else {
+                    String appendString = " " + operation + " ";
+                    history.append(appendString);
+                }
             }
-
-            DECIMAL_SEPARATOR_SYMBOL = newDecimalSeparatorChar;
+            return;
         }
+
+        if (!lastOperator.equals(CalculatorOperation.RESULT)) {
+            history.append(showingValue);
+            history.append(" = ");
+            doMathOperation();
+            setFirstOperand();
+        } else {
+            setFirstOperand();
+            setShowingValueAtZero();
+        }
+
+        history.append(previousValue);
+        String tmp = " " + operation + " ";
+        history.append(tmp);
+        lastOperator = operation;
     }
-*/
 
     private void reset() {
         setShowingValueAtZero();
@@ -112,21 +144,6 @@ public class Calculator implements Serializable {
         history.setLength(0);
     }
 
-    /*
-        private void backspace() {
-            if (waitingNewOperand) {
-                reset();
-                return;
-            }
-
-            if (1 == showingValue.length()) {
-                if ('0' != showingValue.charAt(0))
-                    showingValue.setCharAt(0, '0');
-            } else if (showingValue.length() > 1) {
-                showingValue.setLength(showingValue.length() - 1);
-            }
-        }
-    */
     private void setShowingValueAtZero() {
         showingValue.setLength(0);
         showingValue.append('0');
@@ -166,7 +183,7 @@ public class Calculator implements Serializable {
     }
 
     private void result() {
-        if ((1 == showingValue.length()) && ('0' == showingValue.charAt(0))) {
+        if ((showingValue.length() == 1) && (showingValue.charAt(0) == '0')) {
             return;
         }
         if (lastOperator.equals(CalculatorOperation.RESULT)) {
@@ -176,55 +193,20 @@ public class Calculator implements Serializable {
             return;
         }
 
-        appendDoubleToHistory(Double.parseDouble(showingValue.toString()));
+        appendToHistory(showingValue.toString());
         doMathOperation();
         previousValue = BigDecimal.ZERO;
         lastOperator = CalculatorOperation.RESULT;
         history.append(" = ");
-        appendDoubleToHistory(Double.parseDouble(showingValue.toString()));
+        appendToHistory(showingValue.toString());
     }
 
-    private void appendDoubleToHistory(double val) {
+    private void appendToHistory(String doubleValInString) {
+        double val = Double.parseDouble(doubleValInString);
         if (val == (long) val) {
             history.append(Long.valueOf((long) val).toString());
         } else {
             history.append(Double.valueOf(val).toString());
         }
-    }
-
-    private void operationButtonClicked(CalculatorOperation operation) {
-        if ((1 == showingValue.length()) && ('0' == showingValue.charAt(0))) {
-            return;
-        }
-
-        if (waitingNewOperand) {
-            setFirstOperand();
-            lastOperator = operation;
-            if (history.length() > 3) {
-                char tmp = history.charAt(history.length() - 2);
-                if ((('+' == tmp) || ('-' == tmp) || ('*' == tmp) || ('/' == tmp)) &&
-                        (' ' == history.charAt(history.length() - 1)))
-                    history.setCharAt(history.length() - 2, operation.getSymbol());
-                else {
-                    String appendString = " " + operation + " ";
-                    history.append(appendString);
-                }
-            }
-            return;
-        }
-
-        if (lastOperator.equals(CalculatorOperation.RESULT)) {
-            history.append(showingValue.toString());
-            history.append(" = ");
-            doMathOperation();
-            setFirstOperand();
-        } else {
-            setFirstOperand();
-            setShowingValueAtZero();
-        }
-        history.append(previousValue.toString());
-        String tmp = " " + operation + " ";
-        history.append(tmp);
-        lastOperator = operation;
     }
 }
