@@ -1,13 +1,13 @@
-package ru.geekbrains.android1_calculator;
+package ru.geekbrains.android1_calculator.ui;
 
 import android.widget.TextView;
 
 import java.io.Serializable;
 import java.text.DecimalFormatSymbols;
 
-import ru.geekbrains.android1_calculator.сalculator.Calculator;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorOperation;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorSymbol;
+import ru.geekbrains.android1_calculator.domain.сalculator.Calculator;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorOperation;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorSymbol;
 
 public class CalculatorPresenter implements Serializable {
 

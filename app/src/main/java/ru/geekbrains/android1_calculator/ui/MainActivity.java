@@ -1,4 +1,4 @@
-package ru.geekbrains.android1_calculator;
+package ru.geekbrains.android1_calculator.ui;
 
 
 import androidx.annotation.NonNull;
@@ -9,10 +9,11 @@ import android.widget.Button;
 
 import java.text.DecimalFormatSymbols;
 
+import ru.geekbrains.android1_calculator.R;
 import ru.geekbrains.android1_calculator.domain.Theme;
 import ru.geekbrains.android1_calculator.storage.ThemeStorage;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorOperation;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorSymbol;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorOperation;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorSymbol;
 
 public class MainActivity extends AppCompatActivity {
 

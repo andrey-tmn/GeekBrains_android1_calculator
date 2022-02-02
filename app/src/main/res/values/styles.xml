@@ -67,4 +67,33 @@
         <item name="cornerRadius">@dimen/theme_change_button_corner_round_radius</item>
     </style>
 
+    <style name="ThemeSelectionActivityHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/theme_selection_header_topmargin</item>
+        <item name="android:textSize">@dimen/theme_selection_header_textsize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ThemeInListLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/theme_in_list_topmargin</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="ThemeInListImagePreview">
+        <item name="android:layout_width">@dimen/theme_preview_image_width</item>
+        <item name="android:layout_height">@dimen/theme_preview_image_height</item>
+        <item name="android:layout_marginEnd">@dimen/theme_preview_image_marginend</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="ThemeInListTitleTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/theme_in_list_title_textsize</item>
+        <item name="android:layout_gravity">start|center_vertical</item>
+    </style>
+
 </resources>

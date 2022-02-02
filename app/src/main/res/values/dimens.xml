@@ -24,4 +24,12 @@
     <dimen name="theme_change_button_margins">10dp</dimen>
     <dimen name="theme_change_button_width">15dp</dimen>
     <dimen name="theme_change_button_height">25dp</dimen>
+    <dimen name="theme_selection_header_topmargin">10dp</dimen>
+    <dimen name="theme_selection_header_textsize">30sp</dimen>
+    <dimen name="theme_in_list_topmargin">20dp</dimen>
+    <dimen name="theme_selection_activity_padding">10dp</dimen>
+    <dimen name="theme_preview_image_width">140dp</dimen>
+    <dimen name="theme_preview_image_height">250dp</dimen>
+    <dimen name="theme_preview_image_marginend">12dp</dimen>
+    <dimen name="theme_in_list_title_textsize">26sp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package ru.geekbrains.android1_calculator.сalculator;
+package ru.geekbrains.android1_calculator.domain.сalculator;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

@@ -19,4 +19,7 @@
     <string name="button_operation_result_text">=</string>
     <string name="button_operation_decimal_separator_text">.</string>
     <string name="background_image_description">Background image</string>
+    <string name="theme_list_header">Please select theme:</string>
+    <string name="main_theme_name_in_list">Standard calculator theme</string>
+    <string name="sand_theme_name_in_list">Send theme</string>
 </resources>
