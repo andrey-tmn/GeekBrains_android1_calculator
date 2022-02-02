@@ -1,9 +1,13 @@
 package ru.geekbrains.android1_calculator.ui;
 
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -21,12 +25,22 @@ public class MainActivity extends AppCompatActivity {
 
     private CalculatorPresenter presenter;
     private ThemeStorage storage;
+    private ActivityResultLauncher<Intent> settingsLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         storage = new ThemeStorage(this);
+
+        settingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if ((result.getResultCode() == Activity.RESULT_OK) && (result.getData() != null)) {
+                Theme theme = (Theme) result.getData().getSerializableExtra(ThemeSelectionActivity.THEME_RESULT);
+                storage.saveTheme(theme);
+                recreate();
+            }
+        });
+
         setTheme(storage.getTheme().getStyle());
 
         setContentView(R.layout.activity_main);
@@ -47,12 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeTheme() {
-        if (storage.getTheme().equals(Theme.MAIN)) {
-            storage.saveTheme(Theme.SAND);
-        } else {
-            storage.saveTheme(Theme.MAIN);
-        }
-        recreate();
+        settingsLauncher.launch(ThemeSelectionActivity.intent(MainActivity.this, storage.getTheme()));
     }
 
     private void setOnClickListeners() {
