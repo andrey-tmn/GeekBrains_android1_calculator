@@ -20,4 +20,8 @@
     <string name="button_operation_result_text">=</string>
     <string name="button_operation_decimal_separator_text">,</string>
     <string name="background_image_description">Фоновое изображение</string>
+    <string name="theme_list_header">Пожалуйста, выберите тему:</string>
+    <string name="main_theme_name_in_list">Стандартная тема калькулятора</string>
+    <string name="sand_theme_name_in_list">Песчаная тема</string>
+    <string name="theme_selected">(выбрана)</string>
 </resources>

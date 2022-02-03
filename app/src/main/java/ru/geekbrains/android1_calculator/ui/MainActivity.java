@@ -1,57 +1,73 @@
-package ru.geekbrains.android1_calculator;
+package ru.geekbrains.android1_calculator.ui;
 
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.text.DecimalFormatSymbols;
 
+import ru.geekbrains.android1_calculator.R;
 import ru.geekbrains.android1_calculator.domain.Theme;
+import ru.geekbrains.android1_calculator.presenters.CalculatorPresenter;
 import ru.geekbrains.android1_calculator.storage.ThemeStorage;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorOperation;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorSymbol;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorOperation;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorSymbol;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CalculatorView {
 
     private static final String CALCULATOR_PRESENTER_IN_BUNDLE = "CALCULATOR_PRESENTER_IN_BUNDLE";
 
     private CalculatorPresenter presenter;
     private ThemeStorage storage;
+    private ActivityResultLauncher<Intent> settingsLauncher;
+    private TextView resultTextView;
+    private TextView historyTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         storage = new ThemeStorage(this);
+
+        settingsLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if ((result.getResultCode() == Activity.RESULT_OK) && (result.getData() != null)) {
+                Theme theme = (Theme) result.getData().getSerializableExtra(ThemeSelectionActivity.THEME_RESULT);
+                storage.saveTheme(theme);
+                recreate();
+            }
+        });
+
         setTheme(storage.getTheme().getStyle());
 
         setContentView(R.layout.activity_main);
 
+        resultTextView = findViewById(R.id.textview_result);
+        historyTextView = findViewById(R.id.textview_history);
+
         if (savedInstanceState == null) {
-            presenter = new CalculatorPresenter();
+            presenter = new CalculatorPresenter(this);
         } else {
             presenter = (CalculatorPresenter) savedInstanceState.getSerializable("CALCULATOR_PRESENTER_IN_BUNDLE");
+            presenter.setView(this);
         }
 
         char decimalSeparatorChar = DecimalFormatSymbols.getInstance().getDecimalSeparator();
         Button decimalSeparatorButton = findViewById(R.id.button_operation_decimal_separator);
         decimalSeparatorButton.setText(String.valueOf(decimalSeparatorChar));
 
-        presenter.setOutputTextViews(findViewById(R.id.textview_result), findViewById(R.id.textview_history));
-
         setOnClickListeners();
     }
 
     private void changeTheme() {
-        if (storage.getTheme().equals(Theme.MAIN)) {
-            storage.saveTheme(Theme.SAND);
-        } else {
-            storage.saveTheme(Theme.MAIN);
-        }
-        recreate();
+        settingsLauncher.launch(ThemeSelectionActivity.intent(MainActivity.this, storage.getTheme()));
     }
 
     private void setOnClickListeners() {
@@ -119,5 +135,15 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
 
         outState.putSerializable(CALCULATOR_PRESENTER_IN_BUNDLE, presenter);
+    }
+
+    @Override
+    public void showValue(String val) {
+        resultTextView.setText(val);
+    }
+
+    @Override
+    public void showHistory(String val) {
+        historyTextView.setText(val);
     }
 }
