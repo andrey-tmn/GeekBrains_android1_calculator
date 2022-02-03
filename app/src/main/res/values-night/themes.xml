@@ -1,16 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Android1_Calculator" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+    <style name="Theme.CalculatorStandard" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorPrimary">@color/dark_gray_4</item>
+        <item name="colorPrimaryVariant">@color/dark_gray_3</item>
+        <item name="colorOnPrimary">@color/dull_white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="buttonBackground">@color/dark_blue</item>
+        <item name="buttonOperationBackground">@color/very_dark_orange</item>
+        <item name="buttonTextColor">@color/light_dull_white</item>
+        <item name="resultTextViewTextColor">@color/dull_white</item>
+        <item name="resultTextViewBackgroundColor">@color/dark_gray_3</item>
+        <item name="historyTextViewTextColor">@color/dark_gray_5</item>
+        <item name="backgroundImageSource">@drawable/calculator_background</item>
     </style>
+
+    <style name="Theme.SandDorBeetle" parent="Theme.CalculatorStandard">
+        <item name="buttonBackground">@color/beetle_body_opacity_AA</item>
+        <item name="buttonOperationBackground">@color/yellow_opacity_33</item>
+        <item name="resultTextViewBackgroundColor">@color/yellow_opacity_33</item>
+        <item name="historyTextViewTextColor">@color/yellow_opacity_33</item>
+        <item name="buttonTextColor">@color/dull_white</item>
+        <item name="resultTextViewTextColor">@color/dark_dull_white</item>
+    </style>
+
 </resources>

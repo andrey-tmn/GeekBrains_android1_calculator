@@ -5,236 +5,104 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_operation_reset"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:gravity="center"
-        android:text="@string/button_operation_reset_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
+        style="@style/CalculatorButton.OperationButton"
+        android:text="@string/button_operation_reset_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_operation_backspace"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        style="@style/CalculatorButton.OperationButton"
         android:gravity="center_horizontal|top"
-        android:paddingTop="2dp"
-        android:text="@string/button_operation_backspace_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
+        android:paddingTop="@dimen/button_operation_backspace_text_top_padding"
+        android:text="@string/button_operation_backspace_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_operation_result"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:gravity="center"
-        android:text="@string/button_operation_result_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_operation_addition"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:gravity="center"
-        android:text="@string/button_operation_addition_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_operation_subtraction"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:gravity="center"
-        android:text="@string/button_operation_subtraction_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
+        style="@style/CalculatorButton.OperationButton"
+        android:text="@string/button_operation_result_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_operation_multiplication"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        style="@style/CalculatorButton.OperationButton"
         android:gravity="center_horizontal|top"
-        android:paddingTop="12dp"
-        android:text="@string/button_operation_multiplication_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
+        android:paddingTop="@dimen/button_operation_multiplication_text_top_padding"
+        android:text="@string/button_operation_multiplication_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_operation_division"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:gravity="center"
-        android:text="@string/button_operation_division_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
-
+        style="@style/CalculatorButton.OperationButton"
+        android:text="@string/button_operation_division_text" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_operation_decimal_separator"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_rowSpan="2"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:gravity="center_horizontal|top"
-        android:paddingTop="@dimen/button_operation_decimal_separator_padding_top"
-        android:text="@string/button_operation_decimal_separator_text"
-        android:textSize="@dimen/button_operation_text_size"
-        android:textStyle="bold" />
+        android:id="@+id/button_operation_subtraction"
+        style="@style/CalculatorButton.OperationButton"
+        android:text="@string/button_operation_subtraction_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_operation_addition"
+        style="@style/CalculatorButton.OperationButton"
+        android:layout_columnSpan="@integer/two_cell_span"
+        android:text="@string/button_operation_addition_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_number_one"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_one_text"
-        android:textSize="@dimen/button_number_text_size" />
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_one_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_number_two"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_two_text"
-        android:textSize="@dimen/button_number_text_size" />
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_two_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_number_three"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_three_text"
-        android:textSize="@dimen/button_number_text_size" />
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_three_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_number_four"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_four_text"
-        android:textSize="@dimen/button_number_text_size" />
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_four_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_number_five"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_five_text"
-        android:textSize="@dimen/button_number_text_size" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:height="@dimen/button_default_height" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:height="@dimen/button_default_height" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_number_six"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_six_text"
-        android:textSize="@dimen/button_number_text_size" />
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_number_seven"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_seven_text"
-        android:textSize="@dimen/button_number_text_size" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_number_eight"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_eight_text"
-        android:textSize="@dimen/button_number_text_size" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_number_nine"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_nine_text"
-        android:textSize="@dimen/button_number_text_size" />
-
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_five_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_number_zero"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_default_height"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:layout_marginHorizontal="@dimen/default_horizontal_margin"
-        android:gravity="center"
-        android:text="@string/button_number_zero_text"
-        android:textSize="@dimen/button_number_text_size" />
+        style="@style/CalculatorButton"
+        android:layout_rowSpan="@integer/two_cell_span"
+        android:text="@string/button_number_zero_text" />
+
+    <TextView style="@style/GridLayoutCellContent" />
+
+    <TextView style="@style/GridLayoutCellContent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_number_six"
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_six_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_number_seven"
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_seven_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_number_eight"
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_eight_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_number_nine"
+        style="@style/CalculatorButton"
+        android:text="@string/button_number_nine_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_operation_decimal_separator"
+        style="@style/CalculatorButton.OperationButton"
+        android:gravity="center_horizontal|top"
+        android:paddingTop="@dimen/button_operation_decimal_separator_padding_top"
+        android:text="@string/button_operation_decimal_separator_text" />
 
 </merge>
