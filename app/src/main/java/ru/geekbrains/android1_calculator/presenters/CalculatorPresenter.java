@@ -1,29 +1,29 @@
-package ru.geekbrains.android1_calculator;
-
-import android.widget.TextView;
+package ru.geekbrains.android1_calculator.presenters;
 
 import java.io.Serializable;
 import java.text.DecimalFormatSymbols;
 
-import ru.geekbrains.android1_calculator.сalculator.Calculator;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorOperation;
-import ru.geekbrains.android1_calculator.сalculator.CalculatorSymbol;
+import ru.geekbrains.android1_calculator.domain.сalculator.Calculator;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorInterface;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorOperation;
+import ru.geekbrains.android1_calculator.domain.сalculator.CalculatorSymbol;
+import ru.geekbrains.android1_calculator.ui.CalculatorView;
 
 public class CalculatorPresenter implements Serializable {
 
     private static final char DOT = '.';
 
-    private final Calculator calculator;
-    private transient TextView resultTextView;
-    private transient TextView historyTextView;
+    private final CalculatorInterface calculator;
+    private transient CalculatorView view;
 
-    public CalculatorPresenter() {
+    public CalculatorPresenter(CalculatorView view) {
         this.calculator = new Calculator();
+        this.view = view;
+        showAll();
     }
 
-    public void setOutputTextViews(TextView result, TextView history) {
-        resultTextView = result;
-        historyTextView = history;
+    public void setView(CalculatorView view) {
+        this.view = view;
         showAll();
     }
 
@@ -43,11 +43,11 @@ public class CalculatorPresenter implements Serializable {
     }
 
     private void showHistory() {
-        historyTextView.setText(changeDecimalSeparator(calculator.getHistory()));
+        view.showHistory(changeDecimalSeparator(calculator.getHistory()));
     }
 
     private void showCurrentValue() {
-        resultTextView.setText(changeDecimalSeparator(calculator.getValue()));
+        view.showValue(changeDecimalSeparator(calculator.getValue()));
     }
 
     private String changeDecimalSeparator(String val) {

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/theme_selection_activity_padding"
+    tools:context=".ui.ThemeSelectionActivity">
+
+    <TextView
+        style="@style/ThemeSelectionActivityHeader"
+        android:text="@string/theme_list_header" />
+
+    <LinearLayout
+        android:id="@+id/main_theme_select"
+        style="@style/ThemeInListLayout"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            style="@style/ThemeInListImagePreview"
+            android:contentDescription="@string/main_theme_name_in_list"
+            android:src="@drawable/theme_main_preview" />
+
+        <TextView
+            android:id="@+id/main_theme_select_title"
+            style="@style/ThemeInListTitleTextView"
+            android:text="@string/main_theme_name_in_list" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sand_theme_select"
+        style="@style/ThemeInListLayout"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            style="@style/ThemeInListImagePreview"
+            android:contentDescription="@string/sand_theme_name_in_list"
+            android:src="@drawable/theme_sand_preview" />
+
+        <TextView
+            android:id="@+id/sand_theme_select_title"
+            style="@style/ThemeInListTitleTextView"
+            android:text="@string/sand_theme_name_in_list" />
+
+    </LinearLayout>
+
+</LinearLayout>

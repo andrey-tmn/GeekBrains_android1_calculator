@@ -1,10 +1,10 @@
-package ru.geekbrains.android1_calculator.сalculator;
+package ru.geekbrains.android1_calculator.domain.сalculator;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Calculator implements Serializable {
+public class Calculator implements CalculatorInterface, Serializable {
 
     private static final char DOT = '.';
     private static final int DECIMAL_SCALE_SYMBOLS = 6;
@@ -22,14 +22,17 @@ public class Calculator implements Serializable {
         previousValue = BigDecimal.ZERO;
     }
 
+    @Override
     public String getHistory() {
         return history.toString();
     }
 
+    @Override
     public String getValue() {
         return showingValue.toString();
     }
 
+    @Override
     public void addSymbol(CalculatorSymbol symbol) {
         if (symbol.equals(CalculatorSymbol.BACKSPACE)) {
             if (waitingNewOperand) {
@@ -86,6 +89,7 @@ public class Calculator implements Serializable {
         }
     }
 
+    @Override
     public void doOperation(CalculatorOperation operation) {
         switch (operation) {
             case RESET:
